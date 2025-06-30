@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <img src="images/logo.jpg" alt="Company Logo">
+      <ul>
+        <li><a href="index.html">About</a></li>
+        <li><a href="#">Receipts</a></li>
+        <li><a href="#">Community Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Sign In</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Register</h1>
+    <p>Subtitle</p>
+    <form id="registerForm">
+      <input type="email" name="email" placeholder="Enter Your Email" required>
+      <input type="password" name="password" placeholder="New Password" required>
+      <input type="password" name="password2" placeholder="Re-enter Password" required>
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="login.html">Sign In now.</a></p>
+      <div id="registerError" style="color:red"></div>
+    </form>
+  </main>
+
+  <footer>
+    <img src="images/logo.jpg" alt="Company Logo">
+    <section>
+      <div>
+        <h4>About</h4>
+        <ul><li>Recipes</li><li>Tips</li><li>Community Resources</li><li>Support</li></ul>
+      </div>
+      <div>
+        <h4>User Data Collection</h4>
+        <ul><li>Site Map</li><li>Terms of Service</li><li>Privacy Policy</li></ul>
+      </div>
+      <div>
+        <h4>Donate</h4>
+      </div>
+    </section>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $('#registerForm').on('submit', function(e) {
+      e.preventDefault();
+      $.ajax({
+        method: 'POST',
+        url: '/users/register',
+        data: $(this).serialize(),
+        success: function () {
+          window.location.href = '/';
+        },
+        error: function () {
+          $('#registerError').text('Registration failed. Try a different email or check password match.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#343a40">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Yuki's Food Blog</title>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="images/logo.jpg" alt="Company Logo" width="100"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Receipts</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Community Resources</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Sign In</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-dark text-white" href="register.html">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="text-center py-5">
+    <h1 class="display-4">Create the Delicious at Home</h1>
+    <p class="lead">Join us & Share</p>
+    <div class="mt-4">
+      <a href="#" class="btn btn-outline-dark mr-2">Explore</a>
+      <a href="#" class="btn btn-dark">Post Receipt</a>
+    </div>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="container">
+    <div class="row">
+      <!-- Images from /images folder -->
+      <div class="col-md-4 mb-4">
+        <img src="images/Ceviche-7.webp" class="img-fluid rounded" alt="Ceviche">
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Chimichurri-Chicken-5-1024x1536.webp" class="img-fluid rounded" alt="Chimichurri Chicken">
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Crab-Dip-7-1024x1536.webp" class="img-fluid rounded" alt="Crab Dip">
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Cucumber-Salad-1-1024x1536.webp" class="img-fluid rounded" alt="Cucumber Salad">
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Egg-Salad-6-1024x1536.webp" class="img-fluid rounded" alt="Egg Salad">
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Mango-Avocado-Shrimp-Salad-6-1024x1536.webp" class="img-fluid rounded" alt="Mango Salad">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start mt-5">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">About</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-dark">Recipes</a></li>
+            <li><a href="#" class="text-dark">Tips</a></li>
+            <li><a href="#" class="text-dark">Community</a></li>
+            <li><a href="#" class="text-dark">Support</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">User Data</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-dark">Terms</a></li>
+            <li><a href="#" class="text-dark">Privacy</a></li>
+            <li><a href="#" class="text-dark">Site Map</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Donate</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-dark">Support Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Follow Us</h5>
+          <a href="#"><img src="images/icon-ig.svg" width="24" alt="Instagram"></a>
+          <a href="#"><img src="images/icon-youtube.svg" width="24" alt="YouTube"></a>
+          <a href="#"><img src="images/icon-linkedin.svg" width="24" alt="LinkedIn"></a>
+         
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS used: jQuery, Bootstrap, JS ES6 -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker registered'))
+          .catch(err => console.log('Service Worker error', err));
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Welcome <%= user.name %></h1>
+  <form id="recipeForm" action="/recipes/add" method="POST">
+    <input type="text" name="title" id="title" placeholder="Recipe Title" required>
+    <textarea name="content" id="content" placeholder="Instructions" required></textarea>
+    <button type="submit">Post Recipe</button>
+  </form>
+
+  <h2>Your Recipes</h2>
+  <ul>
+    <% recipes.forEach(r => { %>
+      <li><strong><%= r.title %></strong>: <%= r.content %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
+
+
