@@ -21,6 +21,11 @@ app.use(express.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
+// Route for HTML file
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname, '../register.html'));
+  });
+
 // Routes
 const userRoutes = require('./routes/users');
 app.use('/users', userRoutes);
