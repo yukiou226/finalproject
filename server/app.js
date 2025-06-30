@@ -22,6 +22,9 @@ app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 // Routes
+const userRoutes = require('./routes/users');
+app.use('/users', userRoutes);
+
 const recipeRoutes = require('./routes/recipes');
 app.use('/recipes', recipeRoutes);
 
