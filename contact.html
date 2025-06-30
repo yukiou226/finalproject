@@ -1,13 +1,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
     <nav>
-      <img src="images/logo.jpg" alt="Company Logo">
+      <img src="images/logo.png" alt="Company Logo">
       <ul>
         <li><a href="index.html">About</a></li>
         <li><a href="#">Receipts</a></li>
@@ -20,25 +21,40 @@
   </header>
 
   <main>
+    <h1>Title</h1>
+    <p>Subtitle</p>
     <form id="contactForm">
-      <h2>Contact Us</h2>
       <input type="text" name="name" placeholder="Name" required>
+      <input type="text" name="surname" placeholder="Surname" required>
       <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
+      <textarea name="message" placeholder="Message" required></textarea>
       <button type="submit">Submit</button>
     </form>
   </main>
 
   <footer>
-    <div>
-      <img src="images/logo.jpg" alt="Company Logo">
-      <p>© Company 2025</p>
-      <ul>
-        <li><a href="#">Site Map</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-    </div>
+    <img src="images/logo.jpg" alt="Company Logo">
+    <section>
+      <div>
+        <h4>About</h4>
+        <ul><li>Recipes</li><li>Tips</li><li>Community Resources</li><li>Support</li></ul>
+      </div>
+      <div>
+        <h4>User Data Collection</h4>
+        <ul><li>Site Map</li><li>Terms of Service</li><li>Privacy Policy</li></ul>
+      </div>
+      <div>
+        <h4>Donate</h4>
+      </div>
+    </section>
   </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Message sent. Thank you!');
+      e.target.reset();
+    });
+  </script>
 </body>
 </html>
