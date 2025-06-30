@@ -1,16 +1,28 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+
 const app = express();
-const recipeRoutes = require('./routes/recipes');
-app.use('/recipes', recipeRoutes);
 
+// Connect to MongoDB
+dbName = 'yukifoodblog';
+mongoose.connect(`mongodb://127.0.0.1:27017/yukifoodblog`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch((err) => console.error('❌ Connection error:', err));
 
-// Add this line to specify the views directory
+// Middleware setup
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// View setup
 app.set('views', path.join(__dirname, '../views'));
-
-// Set EJS as the view engine
 app.set('view engine', 'ejs');
 
-// (Other middleware and routing setup...)
+// Routes
+const recipeRoutes = require('./routes/recipes');
+app.use('/recipes', recipeRoutes);
 
 module.exports = app;
