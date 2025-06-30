@@ -119,7 +119,7 @@ footer {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 }
 footer section {
