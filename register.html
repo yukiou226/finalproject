@@ -89,13 +89,15 @@
       e.preventDefault();
       $.ajax({
         method: 'POST',
-        url: '/users/register',
+        url: 'http://localhost:3000/users/register',
         data: $(this).serialize(),
-        success: function () {
+        success: function (response) {
+          alert('Registration successful!');
           window.location.href = '/';
         },
-        error: function () {
-          $('#registerError').text('Registration failed. Try a different email or check password match.');
+        error: function (xhr) {
+          const errorMsg = xhr.responseJSON ? xhr.responseJSON.msg || 'Registration failed' : 'Registration failed';
+          $('#registerError').text(errorMsg);
         }
       });
     });
