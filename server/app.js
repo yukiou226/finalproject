@@ -17,20 +17,27 @@ mongoose.connect(`mongodb://127.0.0.1:27017/yukifoodblog`, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve static files
+app.use(express.static(path.join(__dirname, '..')));
+
 // View setup
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
-// Route for HTML file
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, '../register.html'));
-  });
-
 // Routes
+const indexRoutes = require('./routes/index');
+app.use('/', indexRoutes);
+
 const userRoutes = require('./routes/users');
 app.use('/users', userRoutes);
 
 const recipeRoutes = require('./routes/recipes');
 app.use('/recipes', recipeRoutes);
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
 
 module.exports = app;

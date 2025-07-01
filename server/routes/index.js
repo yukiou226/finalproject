@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 const { ensureAuthenticated } = require('../auth/authMiddleware');
 const Recipe = require('../models/Recipe');
-const app = require('../app');
 
-
-router.get('/', (req, res) => res.send('Welcome to Home'));
+router.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../index.html'));
+});
 
 router.get('/dashboard', ensureAuthenticated, async (req, res) => {
   const recipes = await Recipe.find({ author: req.user.id });
